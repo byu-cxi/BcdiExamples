@@ -1,4 +1,6 @@
-using Documenter, BcdiMeso
+using Documenter, DocumenterCitations, BcdiMeso
+
+bib = CitationBibliography(joinpath(@__DIR__, "src", "refs.bib"))
 
 makedocs(
     sitename="BcdiMeso.jl",
@@ -7,8 +9,10 @@ makedocs(
     ),
     pages = [
         "BcdiMeso"=>"index.md",
-        "Usage"=>"use.md"
-    ]
+        "Usage"=>"use.md",
+        "References"=>"refs.md"
+    ],
+    plugins = [bib]
 )
 
 deploydocs(

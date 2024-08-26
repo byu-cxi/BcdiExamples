@@ -1,4 +1,6 @@
-using Documenter, BcdiStrain
+using Documenter, DocumenterCitations, BcdiStrain
+
+bib = CitationBibliography(joinpath(@__DIR__, "src", "refs.bib"))
 
 makedocs(
     sitename="BcdiStrain.jl",
@@ -7,8 +9,10 @@ makedocs(
     ),
     pages = [
         "BcdiStrain"=>"index.md",
-        "Usage"=>"use.md"
-    ]
+        "Usage"=>"use.md",
+        "References"=>"refs.md"
+    ],
+    plugins = [bib]
 )
 
 deploydocs(
